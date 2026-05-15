@@ -32,7 +32,8 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  <link rel="icon" href="./my-images/minseokim2026.jpg" type="image/jpeg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -175,11 +176,12 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Ill-posed inverse problems are fundamental in many domains, ranging from astrophysics to medical imaging. 
-            Emerging diffusion models provide a powerful prior for solving these problems. 
-            Existing maximum-a-posteriori (MAP) or posterior sampling approaches, however, rely on different computational approximations, leading to inaccurate or suboptimal samples. 
-            To address this issue, we introduce a new approach to solving MAP problems with diffusion model priors using a dual ascent optimization framework. 
-            Our framework achieves better image quality as measured by various metrics for image restoration problems, it is more robust to high levels of measurement noise, it is faster, and it estimates solutions that represent the observations more faithfully than the state of the art.
+            Generative models trained on public databases of protein structures, most of which have been determined by X-ray crystallography, now provide powerful priors for structure prediction. 
+            However, they are not readily conditioned on the measurements from a new crystallographic experiment, limiting their use for X-ray structure determination. 
+            In crystallography, the measured structure-factor amplitudes do not by themselves determine an electron density map or atomic structure because the associated phases are unobserved and must be inferred. 
+            Structure determination therefore remains an inverse problem in which candidate models must be both structurally plausible and consistent with measured diffraction data, often requiring substantial manual refinement by human experts. 
+            Emerging methods aim to incorporate experimental information more directly into predictive and refinement workflows. We present CrystalBoltz, a generative framework that casts crystallographic refinement as Bayesian inference over atomic structures and operates directly on structure-factor amplitudes. 
+            CrystalBoltz moves from unguided generation with a pre-trained prior over protein structures to experiment-guided posterior sampling, followed by atomic coordinate and B-factor refinement. Across multiple protein crystallography datasets, CrystalBoltz attains lower coordinate RMSD and lower R-factors than the strongest baselines considered, while reducing runtime by a factor of 33 relative to existing experimentally guided refinement.
           </p>
         </div>
       </div>
