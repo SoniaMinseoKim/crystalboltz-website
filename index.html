@@ -109,10 +109,23 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="my-images/algo_figure_new.png" alt="PDF First Page" style="width:100%;height:auto;">
+      <!-- ── BEGIN teaser-media (video) ── -->
+      <video autoplay muted loop playsinline style="width:100%;height:auto;">
+        <source src="my-images/8dwn_denoising_with_progress_all_phases.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <!-- ── END teaser-media ── -->
+      <!-- ── ORIGINAL — uncomment to revert ── -->
+      <!-- <img src="my-images/algo_figure_new.png" alt="PDF First Page" style="width:100%;height:auto;"> -->
+      <!-- ── END ORIGINAL ── -->
       <h2 class="subtitle has-text-centered">
         <span class="pdf_caption" style="text-align: justify; display: block; width: 100%; margin: 0 auto;">
-          <strong>Overview of DDiff.</strong> This example illustrates the motion deblurring task. Our method alternates between three steps (x-update, z-update, dual update). On the right, we show the evolution of x, z, and u throughout optimization.
+          <!-- ── BEGIN teaser-caption ── -->
+          <strong>Overview of CrystalBoltz.</strong> Starting from random noise, our experiment-guided diffusion model progressively denoises an atomic protein structure (PDB: 8DWN) by integrating X-ray crystallographic measurements directly into the reverse diffusion process. The video shows the evolution of the predicted structure across all denoising steps, illustrating how CrystalBoltz converges end-to-end to a high-fidelity, experimentally-consistent solution.
+          <!-- ── END teaser-caption ── -->
+          <!-- ── ORIGINAL — uncomment to revert ── -->
+          <!-- <strong>Overview of DDiff.</strong> This example illustrates the motion deblurring task. Our method alternates between three steps (x-update, z-update, dual update). On the right, we show the evolution of x, z, and u throughout optimization. -->
+          <!-- ── END ORIGINAL ── -->
         </span>
       </h2>
     </div>
