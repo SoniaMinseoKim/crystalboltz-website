@@ -45,7 +45,7 @@
 
 <section class="hero">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <div class="container is-max-widescreen">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">CrystalBoltz: End-to-End Protein Structure Determination via Experiment-Guided Diffusion for X-Ray Crystallography</h1>
@@ -71,6 +71,10 @@
             <span class="author-block"><sup>3</sup>UC Davis</span>
             <br>
             <span class="author-block"><sup>*</sup>Equal contribution</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <i>arXiv</i>, 2026
           </div>
           <!-- ── END authors-affiliations ── -->
           <!-- ── ORIGINAL — uncomment to revert ── -->
@@ -136,7 +140,7 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="hero-body">
       <!-- ── BEGIN teaser-media (video) ── -->
       <video autoplay muted loop playsinline controls style="width:100%;height:auto;">
@@ -168,27 +172,30 @@
 
 
 
-<section class="section">
-  <div class="container is-max-desktop">
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Generative models trained on public databases of protein structures, most of which have been determined by X-ray crystallography, now provide powerful priors for structure prediction. 
-            However, they are not readily conditioned on the measurements from a new crystallographic experiment, limiting their use for X-ray structure determination. 
-            In crystallography, the measured structure-factor amplitudes do not by themselves determine an electron density map or atomic structure because the associated phases are unobserved and must be inferred. 
-            Structure determination therefore remains an inverse problem in which candidate models must be both structurally plausible and consistent with measured diffraction data, often requiring substantial manual refinement by human experts. 
-            Emerging methods aim to incorporate experimental information more directly into predictive and refinement workflows. We present CrystalBoltz, a generative framework that casts crystallographic refinement as Bayesian inference over atomic structures and operates directly on structure-factor amplitudes. 
+            Generative models trained on public databases of protein structures, most of which have been determined by X-ray crystallography, now provide powerful priors for structure prediction.
+            However, they are not readily conditioned on the measurements from a new crystallographic experiment, limiting their use for X-ray structure determination.
+            In crystallography, the measured structure-factor amplitudes do not by themselves determine an electron density map or atomic structure because the associated phases are unobserved and must be inferred.
+            Structure determination therefore remains an inverse problem in which candidate models must be both structurally plausible and consistent with measured diffraction data, often requiring substantial manual refinement by human experts.
+            Emerging methods aim to incorporate experimental information more directly into predictive and refinement workflows. We present CrystalBoltz, a generative framework that casts crystallographic refinement as Bayesian inference over atomic structures and operates directly on structure-factor amplitudes.
             CrystalBoltz moves from unguided generation with a pre-trained prior over protein structures to experiment-guided posterior sampling, followed by atomic coordinate and B-factor refinement. Across multiple protein crystallography datasets, CrystalBoltz attains lower coordinate RMSD and lower R-factors than the strongest baselines considered, while reducing runtime by a factor of 33 relative to existing experimentally guided refinement.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
-    <div style="height: 40px;"></div>
+  </div>
+</section>
 
+<section class="section">
+  <div class="container is-max-widescreen">
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
@@ -223,7 +230,7 @@
 
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <!-- Concurrent Work. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
@@ -305,7 +312,7 @@
 
 
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
+  <div class="container is-max-widescreen content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{kim2025dualascentdiffusioninverse,
       title={Dual Ascent Diffusion for Inverse Problems}, 
