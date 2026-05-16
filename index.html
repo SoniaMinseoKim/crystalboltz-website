@@ -244,16 +244,14 @@
 
         <div class="content has-text-justified">
           <!-- ── BEGIN results-body ── -->
-          <div style="text-align: center; margin: 20px 0 40px 0;">
+          <div style="margin: 20px 0 40px 0;">
             <video autoplay muted loop playsinline controls style="width:100%; height:auto;">
               <source src="my-images/rotate_movie_crop.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <h2 class="subtitle has-text-centered" style="margin-top: 15px; margin-bottom: 40px;">
-              <span class="pdf_caption" style="text-align: justify; display: block; width: 100%; margin: 0 auto;">
-                <strong>Qualitative comparison on PDB 4NTZ.</strong> Predicted structures from CrystalBoltz (ours), ROCKET, Boltz-2, and Phenix are overlaid on the deposited PDB structure. CrystalBoltz recovers the large conformational rearrangement supported by the experimental data (1.32 Å RMSD, 0.39 <em>R</em><sub>free</sub>), whereas all baselines remain trapped near the initial Boltz-2 prediction with substantially higher RMSD and <em>R</em><sub>free</sub>.
-              </span>
-            </h2>
+            <p style="text-align: justify; width: 100%; margin: 15px 0 40px 0;">
+              <strong>Qualitative comparison on PDB 4NTZ.</strong> Predicted structures from CrystalBoltz (ours), ROCKET, Boltz-2, and Phenix are overlaid on the deposited PDB structure. CrystalBoltz recovers the large conformational rearrangement supported by the experimental data (1.32 Å RMSD, 0.39 <em>R</em><sub>free</sub>), whereas all baselines remain trapped near the initial Boltz-2 prediction with substantially higher RMSD and <em>R</em><sub>free</sub>.
+            </p>
           </div>
           <p>
             We evaluate CrystalBoltz on six experimental targets from the PDB (8DWN, 4NTZ, 7O51, 7SEZ, 7VNX, 1L63), spanning diffraction resolutions of 1.69–2.20 Å and protein sizes of 164–306 residues. Compared against Phenix refinement, the unguided Boltz-2 prior, and ROCKET (a recent data-guided method that optimizes MSA embeddings against diffraction data), CrystalBoltz attains the lowest RMSD and R-factors on the majority of metric-target pairs and consistently improves the R-factors over the unguided prior. The largest gains appear on targets where the prior is far from the deposited structure: on 4NTZ (4.54 Å initial RMSD gap) and 8DWN (2.65 Å gap), CrystalBoltz reaches 1.30 Å and 1.32 Å RMSD respectively, recovering conformational rearrangements that all baselines miss.
