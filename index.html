@@ -192,8 +192,18 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
+        <!-- ── BEGIN method-body ── -->
+        <div style="text-align: center; margin: 30px 0;">
+          <img src="my-images/crystalboltz_algo_figure-1.png" alt="CrystalBoltz algorithm figure" style="width:100%; height:auto;">
+        </div>
         <p>
-          DDiff employs the Alternating Direction Method of Multipliers (ADMM) framework, which introduces a slack variable z with the constraint x = z. 
+          CrystalBoltz proceeds in two phases. <strong>Phase 1</strong> runs Boltz-2 reverse diffusion conditioned on the protein sequence together with the crystal's unit cell and space group. Sampling begins unguided to let the prior establish a coarse fold; once a backbone has emerged (at step <em>t<sub>g</sub></em>), we switch on experimental guidance and continue through to <em>t</em> = 0. At each guided step, the denoised structure prediction <em>X̂</em><sub>0</sub> is aligned to the crystal frame, passed through the differentiable SFCalculator forward model to produce calculated structure-factor amplitudes |<em>F<sub>c</sub></em>|, and compared against the experimental |<em>F<sub>o</sub></em>| using a combined Gaussian + Rice crystallographic likelihood. The likelihood gradient is backpropagated through the denoiser to steer the sampling trajectory toward structures consistent with the diffraction data. <strong>Phase 2</strong> takes the final denoised structure and jointly refines atomic coordinates and isotropic B-factors against the crystallographic R-factor for a small number of Adam steps. This separates global, prior-guided conformational search from local crystallographic fitting.
+        </p>
+        <!-- ── END method-body ── -->
+        <!-- ── ORIGINAL — uncomment to revert ── -->
+        <!--
+        <p>
+          DDiff employs the Alternating Direction Method of Multipliers (ADMM) framework, which introduces a slack variable z with the constraint x = z.
           This decomposition allows the data fidelity and prior terms to be handled separately through three alternating update steps.
         </p>
         <p>
@@ -214,6 +224,8 @@
         <div style="text-align: center; margin: 30px 0;">
           <img src="my-images/crystalboltz_algo_figure-1.png" alt="CrystalBoltz algorithm figure" style="width:100%; height:auto;">
         </div>
+        -->
+        <!-- ── END ORIGINAL ── -->
         </div>
       </div>
     </div>
@@ -231,15 +243,20 @@
         <h2 class="title is-3">Results</h2>
 
         <div class="content has-text-justified">
+          <!-- ── BEGIN results-body ── -->
           <div style="text-align: center; margin: 20px 0;">
             <video autoplay muted loop playsinline controls style="width:100%; height:auto;">
               <source src="my-images/rotate_movie_crop.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
-          <div style="text-align: center; margin: 20px 0;">
-            <img src="my-images/paper_figure.png" alt="Results" style="width:100%; height:auto; max-width: 800px;">
-          </div>
+          <p>
+            We evaluate CrystalBoltz on six experimental targets from the PDB (8DWN, 4NTZ, 7O51, 7SEZ, 7VNX, 1L63), spanning diffraction resolutions of 1.69–2.20 Å and protein sizes of 164–306 residues. Compared against Phenix refinement, the unguided Boltz-2 prior, and ROCKET (a recent data-guided method that optimizes MSA embeddings against diffraction data), CrystalBoltz attains the lowest RMSD and R-factors on the majority of metric-target pairs and consistently improves the R-factors over the unguided prior. The largest gains appear on targets where the prior is far from the deposited structure: on 4NTZ (4.54 Å initial RMSD gap) and 8DWN (2.65 Å gap), CrystalBoltz reaches 1.30 Å and 1.32 Å RMSD respectively, recovering conformational rearrangements that all baselines miss.
+          </p>
+          <p>
+            Beyond accuracy, CrystalBoltz reduces per-target runtime from hours to minutes on a single NVIDIA A6000: 11.3 minutes end-to-end versus 376 minutes for ROCKET, a 33.3× speedup. This gap arises because ROCKET requires iterative MSA-bias optimization followed by a full phenix.refine step, whereas CrystalBoltz applies guidance during reverse diffusion and a short Adam-based refinement against the crystallographic forward model. The rotating visualization above shows the final CrystalBoltz prediction overlaid on the deposited structure — where baselines remain trapped near the initial prior, CrystalBoltz follows the experimental signal to the true conformation.
+          </p>
+          <!-- ── END results-body ── -->
         </div>
       </div>
     </div>
@@ -247,6 +264,27 @@
   </div>
 </section>
 
+
+
+<!-- ── BEGIN contributions-section ── -->
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Contributions</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>We cast crystallographic structure determination as experiment-guided posterior sampling with a diffusion prior.</li>
+            <li>We derive crystallography-native likelihood guidance from differentiable structure-factor objectives, enabling the model to resolve large conformational changes.</li>
+            <li>We combine guided sampling with post-guidance crystallographic refinement of coordinates and B-factors.</li>
+            <li>We achieve better agreement metrics at 33.3× lower runtime than the state of the art on six experimental targets.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── END contributions-section ── -->
 
 
 <section class="section" id="BibTeX">
